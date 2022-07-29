@@ -14,7 +14,7 @@ class Oxygen:
         tokens = []
         custom_keywords = []
         BUILT_IN_KEYWORDS = ["print", "function", "import"]
-        chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_()"",'
+        chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_()""\','
         mathoperators = '+-/*%'
         allowedfunc = []
         allowedkey = []
