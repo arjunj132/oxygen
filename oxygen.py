@@ -3,6 +3,7 @@
 
 import sys
 import json
+import os
 
 class Oxygen:
     def __init__(self, code):
@@ -42,7 +43,7 @@ class Oxygen:
             elif currentchar in chars:
                 res = currentchar
                 pos += 1
-                while code[pos] in chars and pos < length:
+                while code[pos] in chars + "1234567890" and pos < length:
                     res += code[pos]
                     pos += 1
                 if res not in BUILT_IN_KEYWORDS:
@@ -134,6 +135,7 @@ class Oxygen:
                             while code[pos] != '"' and code[pos] != '\n' and pos < length:
                                 res += code[pos]
                                 pos += 1
+                            
                             checkmodulecommands = open("opl/" + res + "/commands.json")
                             x = checkmodulecommands.read()
                             y = json.loads(x)
