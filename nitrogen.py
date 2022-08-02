@@ -118,7 +118,7 @@ else:
         textbar.config(text='Downloading Oxygen from GitHub')
         root1.update_idletasks()
         os.system("git clone https://github.com/arjunj132/oxygen.git")
-        page = urllib.request.urlopen('https://raw.githubusercontent.com/arjunj132/oxygen/web/oxygen.py')
+        page = urllib.request.urlopen('https://raw.githubusercontent.com/arjunj132/oxygen/nitrogen/oxygen.py')
         h = open("oxygen/oxygen.py", "w")
         h.write(page.read().decode("utf-8"))
         h.close()
