@@ -9,6 +9,7 @@ from pathlib import Path
 import sys
 import io
 import tkinter.messagebox
+import urllib.request
 
 
 def texteditor():
@@ -103,7 +104,7 @@ else:
     def loadinstall():
         def startnitrogenfrominstall():
             root1.destroy()
-            texteditor()
+            os.execl(sys.executable, sys.executable, *sys.argv)
         root.destroy()
         root1 = Tk()
         root1.title("Install")
@@ -117,6 +118,10 @@ else:
         textbar.config(text='Downloading Oxygen from GitHub')
         root1.update_idletasks()
         os.system("git clone https://github.com/arjunj132/oxygen.git")
+        page = urllib.request.urlopen('https://raw.githubusercontent.com/arjunj132/oxygen/web/oxygen.py')
+        h = open("oxygen/oxygen.py", "w")
+        h.write(page.read().decode("utf-8"))
+        h.close()
         textbar.config(text='Creating bash files...')
         progress['value'] = 40
         root1.update_idletasks()
