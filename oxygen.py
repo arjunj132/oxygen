@@ -1,5 +1,4 @@
 # Lexer and Parser of the Oxygen Programming Language
-# Designed for Nitrogen
 # (c) Arjun J
 
 import sys
@@ -138,9 +137,7 @@ class Oxygen:
                     
                     if res == "import":
                         try:
-                            if os.getcwd().split("/")[-1] != "workspace":
-                                os.chdir("workspace")
-                            os.chdir("../")
+                            
                             res = ""
                             if code[pos + 1] == " ":
                                 pos += 1
