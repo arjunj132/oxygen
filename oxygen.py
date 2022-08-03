@@ -13,10 +13,10 @@ class Oxygen:
         code = self.code
         length = len(code)
         pos = 0
-        tokens = []
+        tokens = [{'type': 'keyword', 'value': 'nothing'}]
         custom_keywords = []
-        BUILT_IN_KEYWORDS = ["print", "function", "import"]
-        chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_()""\','
+        BUILT_IN_KEYWORDS = ["print", "function", "import", "nothing"]
+        chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_()""\',=-!@#$%^&*()\{\}|:"<>?,./~`;[]\\'
         mathoperators = '+-/*%'
         allowedfunc = []
         allowedkey = []
@@ -44,14 +44,22 @@ class Oxygen:
             elif currentchar in chars:
                 res = currentchar
                 pos += 1
-                while code[pos] in chars + "1234567890" and pos < length:
+                
+                
+                chars1 = "1234567890"
+                print(code[pos - 1])
+                print(code[pos])
+                print(code[pos+1])
+                if code[pos - 1] == ",":
+                    chars1 += " "
+                
+                while code[pos] in chars + chars1 and code[pos] != "\n" and code[pos] != "\r" and pos < length:
                     res += code[pos]
                     pos += 1
+                
                 if res not in BUILT_IN_KEYWORDS:
-                    
                     if tokens[len(tokens) - 1]["value"] != "function":
                         if res not in allowedfunc:
-                            
                             works = False
                             for x in allowedkey:
                                 if res.split("(")[0] + "(" in x:
@@ -64,6 +72,7 @@ class Oxygen:
                                     "error": 'Unexpected token "%s"' % res
                                 }
                             else:
+                                
                                 tokens.append({
                                     "type": "run",
                                     "value": res
@@ -149,9 +158,9 @@ class Oxygen:
                                 "value": res
                             })
                             pos +=1
-                        except:
+                        except Exception as e:
                             return {
-                                "error": "Could not import module"
+                                "error": "Could not import module: " + str(e)
                             }
                     
             elif currentchar in mathoperators:
@@ -177,6 +186,7 @@ class Oxygen:
                     "error": 'Unexpected character "%s"' % code[pos]
                 }
           
+        print(tokens)
 
         return {
             "error": False,
@@ -184,6 +194,7 @@ class Oxygen:
         }
     
     def parse(self, tokens):
+        
         customfunc = []
         functionvalue = []
         imports = []
@@ -281,6 +292,9 @@ class Oxygen:
                         print(token["value"])
                 except:
                     print(token["value"])
+                pos += 1
+            elif token["type"] == "keyword" and token["value"] == "nothing":
+                pass
                 pos += 1
             else:
                 print("Unexpected token " + token["type"])
