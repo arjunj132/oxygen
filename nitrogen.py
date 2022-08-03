@@ -30,7 +30,7 @@ def texteditor():
     def save_file():
         """Save the current file as a new file."""
         filepath = asksaveasfilename(
-            defaultextension="oxy",
+            defaultextension=".oxy",
             filetypes=[("Oxygen Files", "*.oxy"), ("All Files", "*.*")],
         )
         if not filepath:
@@ -56,8 +56,8 @@ def texteditor():
     
     def run_file():
         input = txt_edit.get("1.0",END)
-        old_stdout = sys.stdout
-        sys.stdout = buffer = io.StringIO()
+        #old_stdout = sys.stdout
+        #sys.stdout = buffer = io.StringIO()
         with add_path(sys.path[0] + "/oxygen"):
             from oxygen import Oxygen
             oxygen = Oxygen("\n" + input + "\n")
@@ -66,11 +66,11 @@ def texteditor():
                 print("Lexer: " + result["error"])
                 sys.exit()
             oxygen.parse(result["tokens"])
-        sys.stdout = old_stdout
-        whatWasPrinted = buffer.getvalue()
-        tkinter.messagebox.showinfo("Nitrogen - Result",  whatWasPrinted)
+        #sys.stdout = old_stdout
+        #whatWasPrinted = buffer.getvalue()
+        #tkinter.messagebox.showinfo("Nitrogen - Result",  whatWasPrinted)
         
-        buffer.close()
+        #buffer.close()
     
     window = Tk()
     window.title("Nitrogen")
@@ -118,7 +118,7 @@ else:
         textbar.config(text='Downloading Oxygen from GitHub')
         root1.update_idletasks()
         os.system("git clone https://github.com/arjunj132/oxygen.git")
-        page = urllib.request.urlopen('https://raw.githubusercontent.com/arjunj132/oxygen/nitrogen/oxygen.py')
+        page = urllib.request.urlopen('https://raw.githubusercontent.com/arjunj132/oxygen/web/oxygen.py')
         h = open("oxygen/oxygen.py", "w")
         h.write(page.read().decode("utf-8"))
         h.close()
