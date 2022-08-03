@@ -46,9 +46,6 @@ class Oxygen:
                 
                 
                 chars1 = "1234567890"
-                print(code[pos - 1])
-                print(code[pos])
-                print(code[pos+1])
                 if code[pos - 1] == ",":
                     chars1 += " "
                 
@@ -183,7 +180,6 @@ class Oxygen:
                     "error": 'Unexpected character "%s"' % code[pos]
                 }
           
-        print(tokens)
 
         return {
             "error": False,
