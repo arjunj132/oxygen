@@ -56,8 +56,8 @@ def texteditor():
     
     def run_file():
         input = txt_edit.get("1.0",END)
-        #old_stdout = sys.stdout
-        #sys.stdout = buffer = io.StringIO()
+        old_stdout = sys.stdout
+        sys.stdout = buffer = io.StringIO()
         with add_path(sys.path[0] + "/oxygen"):
             from oxygen import Oxygen
             oxygen = Oxygen("\n" + input + "\n")
@@ -66,11 +66,11 @@ def texteditor():
                 print("Lexer: " + result["error"])
                 sys.exit()
             oxygen.parse(result["tokens"])
-        #sys.stdout = old_stdout
-        #whatWasPrinted = buffer.getvalue()
-        #tkinter.messagebox.showinfo("Nitrogen - Result",  whatWasPrinted)
+        sys.stdout = old_stdout
+        whatWasPrinted = buffer.getvalue()
+        tkinter.messagebox.showinfo("Nitrogen - Result",  whatWasPrinted)
         
-        #buffer.close()
+        buffer.close()
     
     window = Tk()
     window.title("Nitrogen")
