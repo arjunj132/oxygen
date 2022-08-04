@@ -191,7 +191,6 @@ class Oxygen:
         
         customfunc = []
         functionvalue = []
-        imports = []
         commands = []
         length = len(tokens)
         pos = 0
@@ -265,15 +264,18 @@ class Oxygen:
                     sys.exit()
                 pos += 1
             elif token["type"] == "importdef":
-                imports.append(token["value"])
                 checkmodulecommands = open("opl/" + token["value"] + "/commands.json")
                 x = checkmodulecommands.read()
                 y = json.loads(x)
                 for z in y:
-                    commands.append(z)
+                    commands.append([token["value"], z])
                 pos += 1
             elif token["type"] == "run":
-                exec("from opl." + imports[commands.index(token["value"].split("(")[0] + "()")] + ".run import *\n" + token["value"], globals(), locals())
+                q = ""
+                for w in commands:
+                    if w[1] == token["value"].split("(")[0] + "()":
+                        q = w[0]
+                exec("from opl." + q + ".run import *\n" + token["value"], globals(), locals())
                 pos += 1
             elif token["type"] == "string":
                 pass
