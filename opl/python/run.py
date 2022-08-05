@@ -1,2 +1,4 @@
+d = dict(locals(), **globals())
+
 def python(code):
-  exec(code)
+  exec(code, d, d)
