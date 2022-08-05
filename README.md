@@ -13,24 +13,39 @@ Nitrogen is a way to easily install and run Oxygen. Just download `nitrogen.py` 
 
 ### pip
 
-You can install Nitrogen directly via pip. Just check out the page at https://pypi.org/project/oxygen-lang/
+You can install Nitrogen directly via pip. Just check out the page at https://pypi.org/project/oxygen-lang/.
+
+Install using pip:
+```
+pip install oxygen-lang
+```
+
+Then import in the python shell and install:
+
+```python
+Python 3.9.2 (default, Feb 28 2021, 17:03:44) 
+[GCC 10.2.1 20210110] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from oxygen_lang import oxygen
+>>> oxygen.oxygen_install()
+```
 
 
 ### Directly
 Install Oxygen by downloading our repo:
 
-```
+```bash
 git clone https://github.com/arjunj132/oxygen.git
 ```
 
 Then just simply write commands in a `oxy` file, and type:
 
-```
+```bash
 python3 -m runfile file.oxy
 ```
 
 Or, just use the CLI:
 
-```
+```bash
 python3 -m cli
 ```
