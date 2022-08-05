@@ -264,18 +264,10 @@ class Oxygen:
                     sys.exit()
                 pos += 1
             elif token["type"] == "importdef":
-                checkmodulecommands = open("opl/" + token["value"] + "/commands.json")
-                x = checkmodulecommands.read()
-                y = json.loads(x)
-                for z in y:
-                    commands.append([token["value"], z])
+                exec("from opl." + token["value"] + ".run import *", globals(), locals())
                 pos += 1
             elif token["type"] == "run":
-                q = ""
-                for w in commands:
-                    if w[1] == token["value"].split("(")[0] + "()":
-                        q = w[0]
-                exec("from opl." + q + ".run import *\n" + token["value"], globals(), locals())
+                exec(token["value"], globals(), locals())
                 pos += 1
             elif token["type"] == "string":
                 pass
