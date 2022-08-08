@@ -6,12 +6,37 @@ Oxygen is simple and fast. It only requires Python for it to run.
 
 ## How to install
 
-### Nitrogen
+
+### Directly (for real use)
+Install Oxygen by downloading our repo:
+
+```bash
+git clone https://github.com/arjunj132/oxygen.git
+```
+
+Then just simply write commands in a `oxy` file, and type:
+
+```bash
+python3 -m runfile file.oxy
+```
+
+Or, just use the CLI:
+
+```bash
+python3 -m cli
+```
+
+
+
+### Nitrogen (just try it out)
 
 Nitrogen is a way to easily install and run Oxygen. Just download `nitrogen.py` from  GitHub and you run it and volia! Oxygen is installed and you have a enviroment to run it safely. Note that Nitrogen installed a edited version of Oxygen that is almost the same as the regular but will only work in the Nitrogen editor.
 
 
-### pip
+⚠ Note that Nitrogen is new and has lots of issues. PLEASE DON'T USE NITROGEN IF YOU ARE DOING SOME SERIOUS PROJECT. 
+
+
+#### pip
 
 You can install Nitrogen directly via pip. Just check out the page at https://pypi.org/project/oxygen-lang/.
 
