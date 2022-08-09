@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Oxygen - Deployment Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<style>
+body {
+	font-family: 'Roboto', sans-serif;
+}
+</style>
+</head>
+<body>
+<h1>Deploy to Web</h1>
+<h4><i>Note: This is not for running regular code - this is for printing one line and outputting that as HTML. This also may take longer the first time as system needs to wake up.</i></h4>
+<div id="messages">Waiting for runner to take up task</div>
+<script>
+fetch('https://proxy-for-cors.herokuapp.com/https://oxygenlang.pythonanywhere.com/')
+  .then((response) => response.text())
+  .then((uselessdata) => {
+    var runnerran = document.createElement("p");
+    runnerran.innerHTML = `Runner has responded<br><br>
+    <form action="javascript:start_oxygen_web()">
+  <label for="website">Website that holds Oxygen code:</label>
+  <input type="text" id="website" name="website" placeholder="https://example.com/file.oxy" style="font-family: inherit;"><br>
+</form>
+    `
+    document.getElementById("messages").appendChild(runnerran)
+    
+  });
+
+
+function start_oxygen_web() {
+	var website = document.getElementById("website").value
+    var runnerran = document.createElement("p");
+    runnerran.innerHTML = "Getting contents from URL"
+    document.getElementById("messages").appendChild(runnerran)
+    fetch("https://proxy-for-cors.herokuapp.com/" + website)
+  .then((response) => response.text())
+  .then((codethatruns) => {
+  var runnerran = document.createElement("p");
+    runnerran.innerHTML = "Running code"
+    document.getElementById("messages").appendChild(runnerran)
+    fetch(`https://proxy-for-cors.herokuapp.com/https://oxygenlang.pythonanywhere.com/run/web/?website=${encodeURIComponent(website)}`)
+  .then((response) => response.text())
+  .then((data) => {
+  var runnerran = document.createElement("p");
+    runnerran.innerHTML = "<br><br><br><br>Recived code:<br>"
+    document.getElementById("messages").appendChild(runnerran)
+    var runnerran = document.createElement("pre");
+    runnerran.innerHTML = codethatruns
+    document.getElementById("messages").appendChild(runnerran)
+    var runnerran = document.createElement("p");
+    runnerran.innerHTML = "<br>Recived result:<br>"
+    document.getElementById("messages").appendChild(runnerran)
+    var runnerran = document.createElement("iframe");
+    runnerran.src = `https://oxygenlang.pythonanywhere.com/run/web/?website=${encodeURIComponent(website)}`
+    runnerran.frameBorder="0"
+    runnerran.height="50"
+    runnerran.width="300"
+    document.getElementById("messages").appendChild(runnerran)
+    var runnerran = document.createElement("p");
+    runnerran.innerHTML = "<br>Raw HTML:<br>"
+    document.getElementById("messages").appendChild(runnerran)
+    var runnerran = document.createElement("pre");
+    runnerran.innerHTML = data
+    document.getElementById("messages").appendChild(runnerran)
+        var runnerran = document.createElement("p");
+    runnerran.innerHTML = `<br><a href="https://oxygenlang.pythonanywhere.com/run/web/?website= ${encodeURIComponent(website)}">URL</a><br>`
+    document.getElementById("messages").appendChild(runnerran)
+  });
+  });
+    
+}
+
+</script>
+</body>
+</html>
