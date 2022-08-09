@@ -55,22 +55,11 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> oxygen.oxygen_install()
 ```
 
+## Deploy
 
-### Directly
-Install Oxygen by downloading our repo:
+If you are done with your project, you can deploy you project. More deploying options coming soon.
 
-```bash
-git clone https://github.com/arjunj132/oxygen.git
-```
+<a href="https://arjunj132.github.io/oxygen/deploy">Deploy your project</a>
 
-Then just simply write commands in a `oxy` file, and type:
 
-```bash
-python3 -m runfile file.oxy
-```
-
-Or, just use the CLI:
-
-```bash
-python3 -m cli
-```
+Thank you to <a href="https://www.pythonanywhere.com/">pythonanywhere</a> for the server.
