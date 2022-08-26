@@ -1,5 +1,8 @@
 ![Oxygen](https://i.ibb.co/3Mm6YQX/canvas.png)
 # The Oxygen Programming Language
+Nitrogen pip downloads: [![Downloads](https://pepy.tech/badge/oxygen-lang)](https://pepy.tech/project/oxygen-lang)
+
+
 A simple programming language based on Python for beginners about to start programming.
 
 Oxygen is simple and fast. It only requires Python for it to run.
