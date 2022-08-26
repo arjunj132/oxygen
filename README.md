@@ -15,6 +15,13 @@ Install Oxygen by downloading our repo:
 
 ```bash
 git clone https://github.com/arjunj132/oxygen.git
+cd oxygen
+```
+
+Note for faster version, use minified (reccomended):
+
+```
+cd min
 ```
 
 Then just simply write commands in a `oxy` file, and type:
@@ -29,7 +36,7 @@ Or, just use the CLI:
 python3 -m cli
 ```
 
-
+Then use commands like normal.
 
 ### Nitrogen (just try it out)
 
