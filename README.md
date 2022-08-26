@@ -40,7 +40,7 @@ Then use commands like normal.
 
 ### Nitrogen (just try it out)
 
-Nitrogen is a way to easily install and run Oxygen. Just download `nitrogen.py` from  GitHub and you run it and volia! Oxygen is installed and you have a enviroment to run it safely. Note that Nitrogen installed a edited version of Oxygen that is almost the same as the regular but will only work in the Nitrogen editor.
+Nitrogen is a way to easily install and run Oxygen. Just download `nitrogen.py` (or `min/nitrogen.py` for faster - reccomended) from  GitHub and you run it and volia! Oxygen is installed and you have a enviroment to run it safely. Note that Nitrogen installed a edited version of Oxygen that is almost the same as the regular but will only work in the Nitrogen editor.
 
 
 :warning: Note that Nitrogen is new and has lots of issues. PLEASE DON'T USE NITROGEN IF YOU ARE DOING SOME SERIOUS PROJECT. 
