@@ -20,7 +20,7 @@ cd oxygen
 
 Note for faster version, use minified (reccomended):
 
-```
+```bash
 cd min
 ```
 
