@@ -1,5 +1,8 @@
+<div align="center">Oxygen is getting large updates. Stay tuned for more info</div><br><br>
+
 ![Oxygen](https://i.ibb.co/3Mm6YQX/canvas.png)
 # The Oxygen Programming Language
+
 Nitrogen pip downloads: [![Downloads](https://pepy.tech/badge/oxygen-lang)](https://pepy.tech/project/oxygen-lang)
 
 
