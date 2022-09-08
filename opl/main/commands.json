@@ -1,0 +1,14 @@
+[
+    "oxygeninfo()",
+    "mainmoduleinfo()",
+    "add()",
+    "pyprint()",
+    "subtract()",
+    "multiply()",
+    "divide()",
+    "power()",
+    "modulo()",
+    "newline()",
+    "convert()",
+    "userinput()"
+]
